@@ -83,6 +83,8 @@ class _HomePageState extends State<HomePage> {
 
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("Message recieved");
+      print(event.data.keys.elementAt(0));
+      print(event.data.values.elementAt(0));
       print(event.notification!.title);
       print(event.notification!.body);
       showDialog(
@@ -103,6 +105,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => NotificationHandler(
+                            event.data.values.elementAt(0),
                             event.notification!.title,
                             event.notification!.body)));
                   },
@@ -116,7 +119,9 @@ class _HomePageState extends State<HomePage> {
       print('Message clicked!');
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => NotificationHandler(
-              message.notification!.title, message.notification!.body)));
+              message.data.values.elementAt(0),
+              message.notification!.title,
+              message.notification!.body)));
     });
   }
 
