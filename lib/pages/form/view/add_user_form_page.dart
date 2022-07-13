@@ -55,6 +55,8 @@ class _AddUserFormState extends State<AddUserForm> {
         await locationFromAddress(locationController.text);
     locationLatitude = locations.first.latitude;
     locationLongitude = locations.first.longitude;
+    
+    await messaging.subscribeToTopic('all');
 
     messaging.getToken().then((value) {
       print("THE TOKEN");
@@ -68,7 +70,8 @@ class _AddUserFormState extends State<AddUserForm> {
             'sex': sexValue,
             'location': locationController.text,
             "locationLatitude": locationLatitude,
-            "locationLongitude": locationLongitude
+            "locationLongitude": locationLongitude,
+            'subscribedTopic': 'all'
           })
           .then((value) => print("User Added"))
           .catchError((error) => print("Failed to add user: $error"));

@@ -5,6 +5,7 @@ import 'package:location/location.dart' as loc;
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:user_app/pages/form/view/add_user_form_page.dart';
 import 'package:user_app/pages/notification/view/notification_handler.dart';
+import 'package:user_app/pages/notification/view/send_notification.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -83,10 +84,10 @@ class _HomePageState extends State<HomePage> {
 
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("Message recieved");
-      print(event.data.keys.elementAt(0));
-      print(event.data.values.elementAt(0));
       print(event.notification!.title);
       print(event.notification!.body);
+      print(event.data.keys.elementAt(0));
+      print(event.data.values.elementAt(0));
       showDialog(
           context: context,
           builder: (BuildContext context) {
@@ -141,6 +142,21 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text('Home'),
           backgroundColor: Colors.black,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.notification_add,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SendNotification()),
+                );
+              },
+            )
+          ],
         ),
         body: locationLoaded
             ? Center(
