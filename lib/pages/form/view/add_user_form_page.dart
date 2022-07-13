@@ -55,7 +55,7 @@ class _AddUserFormState extends State<AddUserForm> {
         await locationFromAddress(locationController.text);
     locationLatitude = locations.first.latitude;
     locationLongitude = locations.first.longitude;
-    
+
     await messaging.subscribeToTopic('all');
 
     messaging.getToken().then((value) {
@@ -203,8 +203,8 @@ class _AddUserFormState extends State<AddUserForm> {
                       ),
                     ),
                     validator: (value) {
-                      if (value!.length == 0) {
-                        return "Location cannot be empty";
+                      if (value!.length == 0 || value.length < 10) {
+                        return "Enter a valid location";
                       } else {
                         return null;
                       }
