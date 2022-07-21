@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_app/pages/home/view/home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -168,7 +169,13 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         ),
                         textStyle: const TextStyle(fontSize: 16)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
+                    },
                     child: const Text(
                       'Next',
                       style: TextStyle(
