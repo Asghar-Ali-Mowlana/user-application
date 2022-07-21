@@ -13,9 +13,9 @@ class SendNotification extends StatefulWidget {
 class _SendNotificationState extends State<SendNotification> {
   final _formKey = GlobalKey<FormState>();
 
-  final TextEditingController idController = new TextEditingController();
-  final TextEditingController titleController = new TextEditingController();
-  final TextEditingController contentController = new TextEditingController();
+  final TextEditingController idController = TextEditingController();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController contentController = TextEditingController();
 
   double? locationLatitude;
   double? locationLongitude;

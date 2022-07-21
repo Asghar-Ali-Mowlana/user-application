@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:universal_io/io.dart' as u;
 import 'package:firebase_core/firebase_core.dart';
-import 'package:user_app/pages/home/view/home_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:user_app/pages/login/view/login.dart';
 
 Future<void> _messageHandler(RemoteMessage message) async {
   print('background message ${message.notification!.body}');
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const Login(),
     );
   }
 }
