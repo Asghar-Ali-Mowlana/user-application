@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
               ]),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80.0),
+          padding: const EdgeInsets.symmetric(horizontal: 70.0),
           child: Column(
             children: [
               Padding(
@@ -89,6 +89,9 @@ class _LoginState extends State<Login> {
                             "assets/lebanon",
                             width: MediaQuery.of(context).size.width / 12,
                           ),
+                          SizedBox(
+                            width: 10,
+                          ),
                           Container(
                             height: 38,
                             width: MediaQuery.of(context).size.width / 2,
@@ -131,6 +134,9 @@ class _LoginState extends State<Login> {
                           Image.asset(
                             "assets/uae",
                             width: MediaQuery.of(context).size.width / 12,
+                          ),
+                           SizedBox(
+                            width: 10,
                           ),
                           Container(
                             height: 38,
